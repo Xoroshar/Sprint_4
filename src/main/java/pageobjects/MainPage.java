@@ -21,7 +21,7 @@ public class MainPage {
     private final By mainQuestions = By.className("accordion__heading");
 
     // кнопка для заказа нижняя
-    private final By orderDownButton = By.xpath("//*[@id=\"root\"]/div/div/div[4]/div[2]/div[5]/button");
+    private final By orderDownButton = By.xpath(".//div[@class='Home_FinishButton__1_cWm']/button");
 
     // кнопка для заказа верхняя
     private final By orderUpButton = By.className("Button_Button__ra12g");

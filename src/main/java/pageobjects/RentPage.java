@@ -6,17 +6,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RentPage {
-    String locator = "//*[@id=\"root\"]/div/div[2]/div[2]";
-    String dropDownMenu = "//*[@id=\"root\"]/div/div[2]/div[2]/div[2]/div[2]";
     private final WebDriver driver;
-    private final By startDate = By.xpath(locator + "/div[1]/div[1]/div/input");
-    private final By duration = By.xpath(locator + "/div[2]/div[1]/div[1]");
+    private final By startDate = By.xpath(".//input[@placeholder='* Когда привезти самокат']");
+    private final By duration = By.xpath(".//div[@class='Dropdown-placeholder']");
     private final By blackColor = By.xpath("//*[@id=\"black\"]");
     private final By greyColor = By.xpath("//*[@id=\"grey\"]");
-    private final By commentField = By.xpath(locator + "/div[4]/input");
-    private final By orderButton = By.xpath("//*[@id=\"root\"]/div/div[2]/div[3]/button[2]");
-    private final By yesButton = By.xpath("//*[@id=\"root\"]/div/div[2]/div[5]/div[2]/button[2]");
+    private final By commentField = By.xpath(".//input[@placeholder='Комментарий для курьера']");
+    private final By orderButton = By.xpath(".//div[@class='Order_Buttons__1xGrp']/*[text()='Заказать']");
+    private final By yesButton = By.xpath(".//div[@class='Order_Buttons__1xGrp']/*[text()='Да']");
     private final By successfulMessage = By.xpath("//*[text()='Заказ оформлен']");
+    String dropDownMenu = ".//div[@class='Dropdown-menu']";
 
     public RentPage(WebDriver driver) {
         this.driver = driver;

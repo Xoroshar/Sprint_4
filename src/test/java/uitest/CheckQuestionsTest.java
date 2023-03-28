@@ -4,14 +4,36 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pageobjects.MainPage;
 
 import static org.junit.Assert.assertEquals;
 
+@RunWith(Parameterized.class)
 public class CheckQuestionsTest {
+    private final int answerNumber;
     private WebDriver driver;
+
+    public CheckQuestionsTest(int answerNumber) {
+        this.answerNumber = answerNumber;
+    }
+
+    @Parameterized.Parameters
+    public static Object[][] getAnswersNumber() {
+        return new Object[][]{
+                {0},
+                {1},
+                {2},
+                {3},
+                {4},
+                {5},
+                {6},
+                {7},
+        };
+    }
 
     @Before
     public void startUp() {
@@ -38,9 +60,7 @@ public class CheckQuestionsTest {
         answersTexts[6] = "Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.";
         answersTexts[7] = "Да, обязательно. Всем самокатов! И Москве, и Московской области.";
 
-        for (int i = 0; i < answersTexts.length; i++) {
-            assertEquals("Текст не соответствует ожидаемому", answersTexts[i], answers[i]);
-        }
+        assertEquals("Текст не соответствует ожидаемому", answersTexts[answerNumber], answers[answerNumber]);
 
     }
 
